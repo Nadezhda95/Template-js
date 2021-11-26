@@ -1,0 +1,13 @@
+{
+  "timeZone": "Europe/Moscow",
+  "dependencies": {
+    "libraries": [{
+      "userSymbol": "Telegram",
+      "libraryId": "1JkXEW_zfhr6v0TKsvU_ZbygNLpXEczxZcC46fMF_ffk-noMk8UKcMitz",
+      "version": "0",
+      "developmentMode": true
+    }]
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8"
+}
