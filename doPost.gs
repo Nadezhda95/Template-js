@@ -1,6 +1,9 @@
 function doPost(e) {
   const update = JSON.parse(e.postData.contents);
-  let msg_data = {}
+  let msg_data = {
+    id_update : update.update_id
+  }
+
   if (update.hasOwnProperty('message')) {
     msg_data = {
       id         : update.message.message_id,
@@ -55,5 +58,5 @@ function doPost(e) {
     }
 
   }
-  //botlogic()
+  bot_logic(msg_data)
 }
