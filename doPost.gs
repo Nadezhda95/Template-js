@@ -1,9 +1,6 @@
 function doPost(e) {
   const update = JSON.parse(e.postData.contents);
-  let msg_data = {
-    id_update : update.update_id
-  }
-
+  let msg_data = new Object();
   if (update.hasOwnProperty('message')) {
     msg_data = {
       id         : update.message.message_id,
@@ -13,7 +10,8 @@ function doPost(e) {
       text       : update.message.text,
       command    : update.message.text.split(" ")[0],
       date       : update.message.date/86400+25569.125,
-      is_msg     : true
+      is_msg     : true,
+      update_id  : update.update_id
     } 
     if (update.message.hasOwnProperty('forward_from')) {
       msg_data.forward_user_name  = update.message.forward_from.username;
@@ -40,7 +38,8 @@ function doPost(e) {
       text       : update.edited_message.text,
       command    : update.edited_message.text.split(" ")[0],
       date       : update.edited_message.date/86400+25569.125,
-      is_edited  : true
+      is_edited  : true,
+      update_id  : update.update_id
     } 
   }
 
@@ -54,7 +53,8 @@ function doPost(e) {
       command   : update.callback_query.message.text.split('\n')[0],
       date      : update.callback_query.message.date/86400+25569.125,
       vote      : update.callback_query.data,
-      is_button : true
+      is_button : true,
+      update_id  : update.update_id
     }
 
   }
